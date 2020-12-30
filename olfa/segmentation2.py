@@ -74,7 +74,7 @@ def fuzzy_cmeans(image, number_of_cluster, fcm_centers=None):
     print("[INFO] ... \n Starting fuzzy C Means with image shape : {} .".format(image.shape))
     original_shape = image.shape
     img = image.reshape(image.shape[0]*image.shape[1], image.shape[2])
-    fcm = FCM(n_clusters=number_of_cluster, centers=fcm_centers)
+    fcm = FCM(n_clusters=number_of_cluster)
     fcm.fit(img)
     fcm.predict(img)
     #print(fcm_centers)
@@ -88,7 +88,7 @@ def fuzzy_cmeans_normalized(image, number_of_cluster, fcm_centers=None):
     img = image.reshape(image.shape[0]*image.shape[1], image.shape[2])
     scaler = StandardScaler()
     img = scaler.fit_transform(img)
-    fcm = FCM(n_clusters=number_of_cluster, centers=fcm_centers)
+    fcm = FCM(n_clusters=number_of_cluster)
     fcm.fit(img)
     fcm.predict(img)
     prob = fcm.u
