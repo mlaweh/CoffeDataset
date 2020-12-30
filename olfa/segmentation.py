@@ -59,7 +59,6 @@ def preprocess_input():
 def read_image(path, space_color="RGB", chanels_indexs=None, scale_percent=100):
     assert space_color.upper() in SUPPORTED_SPACE_COLOR , "Wrong space colors ..."
     image = cv2.imread(path)
-    
     width = int(image.shape[1] * scale_percent / 100)
     height = int(image.shape[0] * scale_percent / 100)
     dim = (width, height)

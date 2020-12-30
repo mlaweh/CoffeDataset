@@ -117,25 +117,6 @@ def dbscan(image):
     number_of_cluster = len(np.unique(labels))
     return np.reshape(labels, original_shape[:2]), number_of_cluster, list(np.unique(labels, return_counts=True))
 
-def dbscan2(image):
-    """
-    """
-    original_shape = image.shape
-    print("[INFO] ... \n Starting DbScan with image shape : {} .".format(image.shape))
-    eps = 0.1
-    while True :
-        db = DBSCAN(eps=eps, min_samples=100, metric = 'euclidean',algorithm ='auto')
-        db.fit_predict(feature_image)
-        
-        if len(np.unique(db.labels_)) == 3 :
-            print('dbscan valid distance eps = ', eps)
-            break
-        eps+=0.1
-    labels = db.labels_
-    labels+=1
-    print(np.unique(labels))
-    number_of_cluster = len(np.unique(labels))
-    return np.reshape(labels, original_shape[:2]), number_of_cluster, list(np.unique(labels, return_counts=True))
 
 
 def gaussian(image, number_of_cluster):
