@@ -2,15 +2,11 @@ import numpy as np
 import cv2
 import matplotlib.pyplot as plt
 from sklearn.cluster import DBSCAN, MeanShift, estimate_bandwidth
-import skfuzzy as fuzz
 from fcmeans import FCM
-from pyclustering.cluster.fcm import fcm
 from sklearn.mixture import GaussianMixture as GMM
 from imutils import paths
 import matplotlib as mpl
 import scipy.ndimage as ndi 
-from pyclustering.utils import read_image, draw_image_mask_segments
-from pyclustering.cluster.center_initializer import kmeans_plusplus_initializer
 from sklearn.preprocessing import StandardScaler
 
 SUPPORTED_SPACE_COLOR = ["RGB", "L*A*B*", "HSV","GRAY"]
