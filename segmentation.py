@@ -83,7 +83,7 @@ def data_loader(split='train', batch_size=4):
         augs = None
         shuffle = False
 
-    dataset = SegmentationLoader(root='dataset/', augmentations=augs, split=split)
+    dataset = SegmentationLoader(root='/content/CoffeDataset/dataset/', augmentations=augs, split=split)
     loader = torch.utils.data.DataLoader(dataset=dataset, batch_size=batch_size, shuffle=shuffle)
     
     class_weight = torch.tensor([1., 1., 2.])
@@ -341,7 +341,7 @@ class SemanticSegmentation:
         test_loader, test_dataset = data_loader('test', self.opt.batch_size)
 
         # Loading model
-        model = torch.load('net_weights/' + self.opt.filename + '.pth')
+        model = torch.load('/content/drive/MyDrive/memoire_olfa/example.pth')
         #model.cuda()
         
         # tell to pytorch that we are evaluating the model
