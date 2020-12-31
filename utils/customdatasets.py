@@ -58,8 +58,9 @@ class SegmentationLoader(data.Dataset):
         self.images_base = os.path.join(self.root, images_folder, self.split)
         self.annotations_base = os.path.join(self.root, annotations_folder, self.split)
 
-        self.files[split] = recursive_glob(rootdir=self.images_base, suffix=".jpg")
-        
+        self.files[split] = recursive_glob(rootdir=self.images_base, suffix=".png")
+        if not self.files[split]:
+          self.files[split] = recursive_glob(rootdir=self.images_base, suffix=".jpg")
         # Reading dataset info
         self.data = pd.read_csv(os.path.join(self.root, 'dataset.csv'))
         with open(os.path.join(self.root, 'annotations-info.txt')) as json_file:
